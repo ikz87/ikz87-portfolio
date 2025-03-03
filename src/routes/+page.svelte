@@ -1,59 +1,54 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	function escapeHTML(str) {
+		return str
+			.replace(/&/g, "&amp;")
+			.replace(/</g, "&lt;")
+			.replace(/>/g, "&gt;")
+			.replace(/"/g, "&quot;")
+			.replace(/'/g, "&#39;")
+			.replace(/\\/g, "&#92;");
+	}
+
+	let content = ` _    _      _                           
+| |  | |    | |                          
+| |  | | ___| | ___ ___  _ __ ___   ___       
+| |/\\| |/ _ \\ |/ __/ _ \\| '_ ' _ \\ / _ \\   /\\/| 
+\\  /\\  /  __/ | (_| (_) | | | | | |  __/  |/\\/    
+ \\/  \\/ \\___|_|\\___\\___/|_| |_| |_|\\___|      
+================================================
+Use the side pane to navigate through my stuff
+Have fun :)`;
+
+	let lines = content.split("\n").map(escapeHTML);
 </script>
-
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
-
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
+<div class="flex w-full bg-ctp-crust">
+	<div role="button" class="box-shadow text-center flex items-center justify-center w-40 rounded-t-xl bg-ctp-surface0 p-2 px-8 text-ctp-text text-xl font-bold">
+		home
+	</div>
+</div>
+<div class="bg-ctp-surface0 p-4 rounded-b-xl box-shadow rounded-tr-xl h-full w-full flex overflow-auto">
+	<div class="bg-ctp-base flex flex-row w-full h-full overflow-y-auto">
+		<div class="flex flex-col items-end w-14 h-full bg-ctp-overlay0">
+			{#each lines as line, i}
+				<div class="text-lg px-2 text-right text-ctp-text ">
+					{i+1}
+				</div>
+			{/each}
+		</div>
+		<div class="flex flex-col w-full h-full">
+			{#each lines as line, i}
+				<div class="text-lg px-3 text-ctp-text ascii hover:bg-ctp-overlay0 transition-all">
+					{@html line}
+				</div>
+			{/each}
+		</div>
+	</div>
+</div>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
+	.ascii {
+		font-family: monospace;
+		white-space: pre; /* Preserves spaces exactly */
 	}
 </style>
+

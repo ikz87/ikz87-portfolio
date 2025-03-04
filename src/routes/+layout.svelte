@@ -13,8 +13,7 @@
 	import { faFileLines } from "@fortawesome/free-regular-svg-icons";
 	import { faFilePdf } from "@fortawesome/free-regular-svg-icons";
 		
-	// Data for all the menus n stuff
-	const selected_item = "~"
+	
 	const side_pane_items = [
 		{
 			title: "~",
@@ -25,11 +24,6 @@
 			title: "about-me.txt",
 			link: "/about",
 			icon: faFileLines,
-		},
-		{
-			title: "resume.pdf",
-			link: "/documents/Isaac%20Arcia%20resume.pdf",
-			icon: faFilePdf,
 		},
 		{
 			title: "my-work",
@@ -46,7 +40,25 @@
 			link: "/contact",
 			icon: faFileLines,
 		},
+		{
+			title: "resume.pdf",
+			link: "/documents/Isaac%20Arcia%20resume.pdf",
+			icon: faFilePdf,
+		},
 	];
+	let selected_item = "~";
+
+	
+	import { page } from "$app/stores";
+
+	
+	$: {
+		const currentPath = $page.url.pathname;
+		const matchedItem = side_pane_items.find(item => item.link === currentPath);
+		if (matchedItem) {
+			selected_item = matchedItem.title;
+		}
+	}
 
 </script>
 
@@ -90,20 +102,40 @@
 						{#each side_pane_items as item}
 							{#if item.title == "~"}
 								<a href="/" class="w-full">
-									<div role="button" class="text-lg w-full p-3 flex gap-2 flex-row rounded-lg items-center role-button group hover:bg-ctp-green transition-all">
-										<FontAwesomeIcon icon={faFolderOpen} class="text-ctp-green group-hover:text-ctp-surface2"/>
-											<h2 class="text-ctp-text group-hover:text-ctp-surface2">
-												~
-											</h2>
-									</div>
+									{#if selected_item === "~"}
+										<div role="button" class="text-lg w-full p-3 py-0 flex gap-2 flex-row rounded-lg items-center role-button group bg-ctp-green transition-all">
+											<FontAwesomeIcon icon={faFolderOpen} class="text-ctp-surface2"/>
+												<h2 class="text-ctp-surface2 ">
+													~
+												</h2>
+										</div>
+									{:else}
+										<div role="button" class="text-lg w-full p-3 py-0 flex gap-2 flex-row rounded-lg items-center role-button group transition-all">
+											<FontAwesomeIcon icon={faFolderOpen} class="text-ctp-green group-hover:translate-x-1"/>
+												<h2 class="text-ctp-text group-hover:text-ctp-green group-hover:translate-x-1 group-hover:underline">
+													~
+												</h2>
+										</div>
+									{/if}
 								</a>
 							{:else}
 								<a href={item.link} class="text-ctp-text group w-full hover:text-ctp-surface2">
 									<div class="w-full flex flex-col pl-4">
-											<div role="button" class="text-lg w-full p-3 flex gap-2 flex-row rounded-lg items-center role-button group hover:bg-ctp-green transition-all">
-												<FontAwesomeIcon icon={item.icon} class="text-ctp-green group-hover:text-ctp-surface2"/>
+										{#if selected_item === item.title}
+											<div role="button" class="text-lg w-full p-3 py-0 flex gap-2 flex-row rounded-lg items-center role-button group bg-ctp-green transition-all">
+												<FontAwesomeIcon icon={item.icon} class="text-ctp-surface2"/>
+												<div class="text-ctp-surface2">
 													{item.title}
+												</div>
 											</div>
+										{:else}
+											<div role="button" class="text-lg w-full p-3 py-0 flex gap-2 flex-row rounded-lg items-center role-button group transition-all">
+												<FontAwesomeIcon icon={item.icon} class="text-ctp-green group-hover:text-ctp-green group-hover:translate-x-1"/>
+												<div class="text-ctp-text group-hover:underline group-hover:text-ctp-green group-hover:translate-x-1">
+													{item.title}
+												</div>
+											</div>
+										{/if}
 									</div>
 								</a>
 							{/if}

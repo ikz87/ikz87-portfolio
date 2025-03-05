@@ -36,6 +36,11 @@
 			icon: faFolder,
 		},
 		{
+			title: "dotfiles.txt",
+			link: "/dots",
+			icon: faFileLines,
+		},
+		{
 			title: "contact-info.txt",
 			link: "/contact",
 			icon: faFileLines,

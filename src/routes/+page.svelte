@@ -1,6 +1,8 @@
 <script>
 	import './styles.css';
 	import "../app.css";
+	import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
+	import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 	function escapeHTML(str) {
 		return str
 			.replace(/&/g, "&amp;")
@@ -62,13 +64,13 @@ Have fun :)`,};
 	{#each Object.entries(content) as [title, paragraph]}
 		{#if title == selected_tab}
 			<div role="button" 
-				class="box-shadow text-center flex items-center justify-center w-72 rounded-t-xl bg-ctp-surface0 p-2 px-4 text-ctp-lavender text-lg font-bold">
+				class="box-shadow text-center flex items-center justify-center w-48 rounded-t-xl bg-ctp-surface0 p-2 px-4 text-ctp-lavender text-lg font-bold">
 				{title}
 			</div>
 		{:else}
 			<div role="button" 
 				on:click={() => change_tab(title)}
-				class="box-shadow text-center flex items-center justify-center w-72 rounded-t-xl bg-ctp-base p-2 px-4 text-ctp-surface1 text-lg font-bold">
+				class="box-shadow text-center flex items-center justify-center w-48 rounded-t-xl bg-ctp-base p-2 px-4 text-ctp-surface1 text-lg font-bold">
 				{title}
 			</div>
 		{/if}

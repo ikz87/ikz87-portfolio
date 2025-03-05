@@ -3,3 +3,9 @@
 :root {
 	--font-family-code: 'Cascadia Code', monospace;
 }
+
+lines:hover {
+	-webkit-box-shadow: 0px 3px 0px 0px rgba(184,192,224,1);
+-moz-box-shadow: 0px 3px 0px 0px rgba(184,192,224,1);
+box-shadow: 0px 3px 0px 0px rgba(184,192,224,1);
+}

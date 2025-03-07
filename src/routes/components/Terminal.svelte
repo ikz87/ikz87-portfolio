@@ -182,9 +182,9 @@
 		{#if selected_tab in tab_images}
 			<div bind:this={gallery_container} class="flex lg:pr-5 gap-4 p-1 lg:col-span-1 col-span-2 lg:flex-col flex-row lg:items-start items-center { tab_images[selected_tab].length == 1 ? "justify-center" : "justify-start"} lg:h-auto lg:w-full h-full lg:overflow-x-clip lg:overflow-y-auto overflow-x-auto">
 				{#each tab_images[selected_tab] as img}
-					<div class="relative aspect-video lg:h-auto h-full">
+					<div class="relative aspect-video lg:h-auto w-full h-full">
 						{#if !loadedImages[img.url]}
-							<div class="h-full aspect-video border-ctp-crust border-4 ring ring-ctp-overlay0 bg-ctp-overlay2 flex items-center justify-center">
+							<div class="h-full w-full inset-0 aspect-video border-ctp-crust border-4 ring ring-ctp-overlay0 bg-ctp-overlay2 flex items-center justify-center">
 								<FontAwesomeIcon icon={faSpinner} class="text-ctp-text animate-spin text-3xl" />
 							</div>
 						{/if}

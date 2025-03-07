@@ -184,7 +184,7 @@
 				{#each tab_images[selected_tab] as img}
 					<div class="relative aspect-video lg:h-auto w-full h-full">
 						{#if !loadedImages[img.url]}
-							<div class="h-full w-full inset-0 aspect-video border-ctp-crust border-4 ring ring-ctp-overlay0 bg-ctp-overlay2 flex items-center justify-center">
+							<div class="lg:h-auto h-full w-full aspect-video border-ctp-crust border-4 ring ring-ctp-overlay0 bg-ctp-overlay2 flex items-center justify-center">
 								<FontAwesomeIcon icon={faSpinner} class="text-ctp-text animate-spin text-3xl" />
 							</div>
 						{/if}

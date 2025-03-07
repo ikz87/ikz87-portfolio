@@ -4,27 +4,36 @@
 	import Terminal from "../components/Terminal.svelte"
 
 	let content = {
-		"introduction.txt": `These are projects I've worked on as a hobbyist. They
+		"intro.txt": `These are projects I've worked on as a hobbyist. They
 		are all open source so you can get an idea of the quality
 		of the code I write by visiting each repo.
+		<br>
 		<br>
 		Some of parts of these projects are more coding-adjacent 
 		than full on software, but they still showcase my
 		skills as a developer.
 		<br> 
+		<br>
 		I believe that the projects in this section show my 
 		experience as a developer more than any professional work
 		I've done so far.
 		<br>
+		<br>
 		Below are some other minor projects that I think deserve 
 		an honourable mention:
+		<br>
 		- <a href="https://github.com/ikz87/GLWall" class="underline">GLWall</a>: GLSL renderer meant to be used for live and 
 		‎ ‎ responsive wallpapers, written in C.
+		<br>
 		- <a href="https://github.com/ikz87/picom-shaders" class="underline">Picom shaders</a>: A collection of GLSL shaders meant to be
 		‎ ‎ used with picom.`,
 		"kzooting.txt":`<span class="text-ctp-flamingo">### The kzooting project</span>
+		<br>
 		# <a href="https://github.com/ikz87/https://github.com/ikz87/rpp-osu-keypad" class="text-ctp-blue underline">https://github.com/ikz87/rpp-osu-keypad</a>
+		<br>
 		# <a href="https://github.com/ikz87/kzooting-GUI" class="text-ctp-blue underline">https://github.com/ikz87/kzooting-GUI</a>
+		<br>
+		<br>
 		The kzooting is a completely DIY analog keypad inspired
 		by <a href="https://wooting.io/#Our-keyboards" class="underline">wooting</a> keyboards, and thus, posseses <a href"https://wooting.io/rapid-trigger" class="underline">rapid trigger</a> 
 		technology. The project started by modifying MX Reds 
@@ -32,12 +41,15 @@
 		below the switch stem and glueing a linear hall effect
 		sensor below the switch casing.
 		<br>
+		<br>
 		After some microcontroller programming on a Raspberry Pi
 		Pico, the first kzooting prototype was alive and working! 
+		<br>
 		<br>
 		I proceeded to modify the seven remaining switches and 
 		building a whole casing out of materials I had laying 
 		around.
+		<br>
 		<br>
 		With the kzooting complete, I developed (with the help of
 		a cousin (ty calito <3)) a GUI desktop client written in
@@ -45,32 +57,40 @@
 		the state of each key and configure all parameters related
 		to key activation.
 		<br>
+		<br>
 		The last thing I worked on for this project was a nice 
 		looking key visualizer for when I play <a href="https://osu.ppy.sh/" class="underline">osu!</a> with the device.
 		You can also check a full video with a prototype of this
 		visualizer <a href="https://www.youtube.com/watch?v=f1oFjeYvJh4" class="underline">here</a>.
 		<br>
+		<br>
 		I presented this as a final project for my "machines
 		and computers" course. If you know spanish, you can check 
 		this <a href="/documents/kzooting-document.pdf" class="underline">document</a> explaining every detail about the project.`,
 		"tracking.txt":`<span class="text-ctp-pink">### Phone facial tracking</span>
+		<br>
 		# <a href="https://github.com/ikz87/phone-facial-tracking" class="text-ctp-blue underline">https://github.com/ikz87/phone-facial-tracking</a>
+		<br>
+		<br>
 		This project consisted on a device that could move my phone
 		using two servomotors and processing real time video from
 		the phone's camera so that it could track faces.
 		<br>
+		<br>
 		I started by assembling a base with the servomotors that 
 		could securely hold my phone in place. With that done, 
 		I wrote some code to interface with the microcontroller 
-		(a Raspberry Pi Pico) to manually move the servoss so I 
+		(a Raspberry Pi Pico) to manually move the servos so I 
 		could test the device. Then came some coding with OpenCV 
 		(in Python) and a *lot* of math to calculate the angle 
 		needed to move each servomotor so that the tracking would 
 		be as precise as possible.
 		<br>
+		<br>
 		With the project being done, I also built a desktop app 
 		with PyQT5 to show general real time information and a 3D
 		simulation of the tracking taking place.
+		<br>
 		<br>
 		I presented this as a final project for my "Control Systems" 
 		course. If you know spanish, you can check this <a href="/documents/pft-document.pdf" class="underline">document</a>, 
@@ -78,7 +98,10 @@
 		especially all the math behind it.
 		`,
 		"yawns.txt":`<span class="text-ctp-mauve">### Yawns: Your Adaptable Widget Notification System</span>
+		<br>
 		# <a href="https://github.com/ikz87/yawns" class="text-ctp-blue underline">https://github.com/ikz87/yawns</a>
+		<br>
+		<br>
 		Yawns is a notification manager (or daemon) built with PyQt out 
 		of the necessity for highly customizable, adaptable 
 		notifications.  Why would your notification for a brightness 
@@ -87,22 +110,31 @@
 		notifications depending on the notification title, summary, app 
 		name or "yawn type".
 		<br>
+		<br>
 		Although it's a somewhat unfinished project, It's still fully 
 		functional and I use it to this day on my linux installation.`,
 		"swizzling.txt":`<span class="text-ctp-sky">### Python vector swizzling</span>
+		<br>
 		# <a href="https://github.com/ikz87/python-vector-swizzling" class="text-ctp-blue underline">https://github.com/ikz87/python-vector-swizzling</a>
+		<br>
 		# <a href="https://pypi.org/project/vector-swizzling/" class="text-ctp-blue underline">https://pypi.org/project/vector-swizzling</a>
+		<br>
+		<br>
 		This Python library provides flexible and intuitive vector 
 		manipulation with swizzling capabilities, designed to resemble 
 		GLSL vector handling for 2D, 3D, and 4D vectors. Originally built
 		for my facial tracking project, I decided to publish this as my 
 		first Python package in PyPi.`,
 		"tty-cube.txt":`<span class="text-ctp-green">### TTY cube </span>
+		<br>
 		# <a href="https://github.com/ikz87/tty-cube" class="text-ctp-blue underline">https://github.com/ikz87/tty-cube</a>
+		<br>
+		<br>
 		This C program renders a rotating cube on your TTY via frame
 		buffer. The program provides tons of configuration options
 		to customize the appearance and behavior of the cube. Even 
 		implementing image rendering and (sort of) fragment shaders.
+		<br>
 		<br>
 		The cube is rendered using basic linear algebra and analytic 
 		geometry with a solution I came with while knowing nothing
@@ -165,7 +197,7 @@
 	};
 
 
-	let selected_tab = "introduction.txt";
+	let selected_tab = "intro.txt";
 
 </script>
 

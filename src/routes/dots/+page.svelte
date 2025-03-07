@@ -4,10 +4,14 @@
 	import Terminal from "../components/Terminal.svelte"
 
 		let content = {
-		"dotfiles.txt":`<span class="text-ctp-mauve">### My dotfiles and end-game rice
+		"dotfiles.txt":`<span class="text-ctp-mauve">### My dotfiles and end-game rice </span>
+		<br>
 		# <a href="https://github.com/ikz87/dots-2.0" class="text-ctp-blue underline">https://github.com/ikz87/dots-2.0</a>
+		<br>
+		<br>
 		This had to be in its own section, because that's just how 
 		much I love this very niche part of coding as a hobby.
+		<br>
 		<br>
 		For the uninitiated, dotfiles usually refers to everything
 		inside the \`~/.config/\` folder in linux, meaning, every
@@ -15,9 +19,11 @@
 		and linux power user like me, configuring these files (usually 
 		called ricing) is nothing short of an art form.
 		<br>
+		<br>
 		I've spent countless hours making what I consider to be my 
 		end game rice, which I've been using for about 3 years at
 		this point.
+		<br>
 		<br>
 		My rice consists a <a href="https://github.com/baskerville/bspwm" class="underline">bspwm</a> and <a href="https://github.com/elkowar/eww" class="underline">EWW</a> rice that automatically 
 		generates a colorscheme for every important program I use 

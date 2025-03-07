@@ -4,12 +4,15 @@
 	import Terminal from "../components/Terminal.svelte"
 
 		let content = {
-		"introduction.txt": `Here you'll find all the jobs I've worked on.
+		"intro.txt": `Here you'll find all the jobs I've worked on.
 		Some of the things I've developed are private, but I'll include all the details I can.`,
 		"d-integral.txt":`<span class="text-ctp-flamingo">### Desarrollo Integral (August 2023 - March 2024)</span>
+		<br>
+		<br>
 		This financial company had been using a system based 
 		on google sheets from the start, but as they grew in 
 		size, this proved to be inneficcient. 
+		<br>
 		<br>
 		My role involved developing a script that automatically 
 		scraped data from Google Sheets and converted it into 
@@ -18,25 +21,33 @@
 		designed and developed a web app with React, Typescript 
 		and Tailwind.
 		<br>
+		<br>
 		Needless to say, this software is private, but on the 
 		right are screenshots showing two of several pages that 
 		interfaced with the backend to register data (new 
 		clients and loans in this case) and the login screen 
 		for company staff.`,
 		"opti-grow.txt":`<span class="text-ctp-pink">### Opti-Grow (September 2024 - October 2024)</span>
+		<br>
 		# <a href="https://www.optigrowinvest.com/#Inicio" class="text-ctp-blue underline">https://www.optigrowinvest.com/</a>
+		<br>
+		<br>
 		Opti-Grow is a company that offers agronomic
 		consultations. After working as an "IT guy" for 
 		it's founder and director Ricardo Navarro, he offered
 		to hire me as a freelancer to develop a website for his
 		company.
 		<br>
+		<br>
 		My role in this job was to follow previously stablished
 		design ideas and adapt them to a responsive and 
 		professional looking website built with Svelte and 
 		deployed on an AWS S3 bucket with Cloudfront.`,
 		"e-futuro.txt":`<span class="text-ctp-mauve">### Ecuación Futuro (April 2024 - July 2024)</span>
+		<br>
 		# <a href="https://ecuacionfuturo.org/#Home" class="text-ctp-blue underline">https://ecuacionfuturo.org/</a>
+		<br>
+		<br>
 		Founded by Paulina Taboada, this is a non-profit
 		organization that aims at raising the level of 
 		mathematical proficiency for children in state of 
@@ -45,10 +56,12 @@
 		develop their math skills beyond what most children 
 		their age know.
 		<br>
+		<br>
 		In the past, I had helped Paulina as a programming
 		tutor, so when they needed a website for Ecuación Futuro,
 		her mom was nice enough to give me the opportunity to 
 		work for them as a front-end developer.
+		<br>
 		<br>
 		My role involved designing and developing a Svelte app 
 		that could communicate (in both english and spanish) the 
@@ -106,7 +119,7 @@
 	};
 
 
-	let selected_tab = "introduction.txt";
+	let selected_tab = "intro.txt";
 
 
 </script>

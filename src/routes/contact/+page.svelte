@@ -14,6 +14,7 @@
 <br>
 | ‎ Phone ‎ | ‎ ‎ ‎ <a href="tel:+50577046930" class="underline">+505 7704 56930</a> ‎ ‎ ‎ |
 <br>
+<br>
 My phone is reachable on both Whatsapp and Telegram.`,
 
 	};

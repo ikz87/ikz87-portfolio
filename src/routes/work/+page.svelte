@@ -22,9 +22,9 @@
 		and Tailwind.
 		<br>
 		<br>
-		Needless to say, this software is private, but on the 
-		right are screenshots showing two of several pages that 
-		interfaced with the backend to register data (new 
+		Needless to say, this software is private, but I've 
+		attached some screenshots showing two of several pages 
+		that interfaced with the backend to register data (new 
 		clients and loans in this case) and the login screen 
 		for company staff.`,
 		"opti-grow.txt":`<span class="text-ctp-pink">### Opti-Grow (September 2024 - October 2024)</span>

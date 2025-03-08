@@ -1,6 +1,7 @@
 <script>
 	import './styles.css';
 	import "../app.css";
+	import { onMount } from 'svelte';
 	import { fly } from "svelte/transition";
 
 	import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
@@ -17,6 +18,7 @@
 	import { faBars } from "@fortawesome/free-solid-svg-icons";
 	import { faXmark } from "@fortawesome/free-solid-svg-icons";
 	import { faCode } from "@fortawesome/free-solid-svg-icons";
+	import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 		
 	
 	const side_pane_items = [
@@ -80,10 +82,15 @@
 		}
 	}
 
+	let show_content = false;
+	  onMount(() => {
+		requestAnimationFrame(() => show_content = true);
+  });
+
 </script>
 
 <div class="app bg-ctp-crust">
-	<main>
+	<main class="{show_content? "opacity-100" : "opacity-0"} transition duration-200">
 		{#if is_menu_open}
 			<div class="lg:hidden block z-30 fixed inset-0 bg-black bg-opacity-70 transition-opacity" on:click={close_menu}></div>
 		{/if}

@@ -182,8 +182,8 @@
 		{#if selected_tab in tab_images}
 			<div bind:this={gallery_container} class="flex lg:pr-5 gap-4 p-1 lg:col-span-1 col-span-2 lg:flex-col flex-row lg:items-start items-center { tab_images[selected_tab].length == 1 ? "justify-center" : "justify-start"} lg:h-auto lg:w-full h-full lg:overflow-x-clip lg:overflow-y-auto overflow-x-auto">
 				{#each tab_images[selected_tab] as img}
-					<div class="relative aspect-video bg-red-200 lg:h-auto w-full h-full">
-						<div class="absolute top-0 left-0 h-full w-full aspect-video border-ctp-crust border-4 ring ring-ctp-overlay0 bg-ctp-overlay2 flex items-center justify-center">
+					<div class="relative aspect-video bg-red-200 lg:h-auto lg:w-full h-full">
+						<div class="absolute top-0 left-0 w-full h-full aspect-video border-ctp-crust border-4 ring ring-ctp-overlay0 bg-ctp-overlay2 flex items-center justify-center">
 							<FontAwesomeIcon icon={faSpinner} class="text-ctp-text animate-spin text-3xl" />
 						</div>
 						<img role="button" 
@@ -191,20 +191,6 @@
 							on:load={() => markLoaded(img.url)}
 							class:loaded={loadedImages[img.url]}
 							class="absolute top-0 left-0 aspect-video h-full border-ctp-crust border-4 ring ring-ctp-overlay0 hover:border-ctp-yellow hover:ring-ctp-peach" src={img.url} alt={img.alt} />
-
-						{#if false}
-							{#if !loadedImages[img.url]}
-								<div class="lg:h-auto h-full w-full aspect-video border-ctp-crust border-4 ring ring-ctp-overlay0 bg-ctp-overlay2 flex items-center justify-center">
-									<FontAwesomeIcon icon={faSpinner} class="text-ctp-text animate-spin text-3xl" />
-								</div>
-							{/if}
-
-							<img role="button" 
-								on:click={() => { selected_image = img }}
-								on:load={() => markLoaded(img.url)}
-								class:loaded={loadedImages[img.url]}
-								class="aspect-video h-full border-ctp-crust border-4 ring ring-ctp-overlay0 hover:border-ctp-yellow hover:ring-ctp-peach" src={img.url} alt={img.alt} />
-						{/if}
 					</div>
 				{/each}
 				{#if (Object.keys(selected_image).length !== 0) }

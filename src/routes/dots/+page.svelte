@@ -25,7 +25,7 @@
 		this point.
 		<br>
 		<br>
-		My rice consists a <a href="https://github.com/baskerville/bspwm" class="underline">bspwm</a> and <a href="https://github.com/elkowar/eww" class="underline">EWW</a> rice that automatically 
+		My rice consists a <a href="https://github.com/baskerville/bspwm" class="underline">BSPWM</a> and <a href="https://github.com/elkowar/eww" class="underline">EWW</a> rice that automatically 
 		generates a colorscheme for every important program I use 
 		based on my current wallpaper. My rice is like a home, it's
 		where I work from and it's honestly one of the things that

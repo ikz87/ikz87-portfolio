@@ -89,8 +89,8 @@
 
 </script>
 
-<div class="app bg-ctp-crust">
-	<main class="{show_content? "opacity-100" : "opacity-0"} transition duration-200">
+<div class="app bg-ctp-crust h-dvh w-full">
+	<main>
 		{#if is_menu_open}
 			<div class="lg:hidden block z-30 fixed inset-0 bg-black bg-opacity-70 transition-opacity" on:click={close_menu}></div>
 		{/if}
@@ -155,7 +155,7 @@
 
 
 
-		<div class="h-dvh overflow-hidden w-full bg-ctp-crust lg:p-8 p-3">
+		<div class="{show_content? "opacity-100" : "opacity-0"} transition duration-200 h-dvh overflow-hidden w-full bg-ctp-crust lg:p-8 p-3">
 			<div class="flex flex-col h-full lg:gap-8 gap-3 w-full">
 				<div class="grid grid-cols-2 lg:p-4 lg:px-6 lg:rounded-xl rounded-md box-shadow bg-ctp-surface1">
 					<div class="lg:py-0  py-1 lg:text-2xl text-sm h-full flex flex-row lg:gap-4 gap-3 items-center justify-start">

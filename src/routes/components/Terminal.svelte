@@ -33,12 +33,15 @@
 	let typewriter = ""
 	let typing_speed = 5;
 	let typing_interval;
+	let typing = true;
 
 
 	function change_tab(tab_title) {
 		loadedImages = {};
 		selected_tab = tab_title;
 		typewriter = ""; 
+		typing = true;
+		showCursor = true;
 		let text = content[tab_title];
 		let i = 0;
 		left_shadow_opacity = 0;
@@ -56,16 +59,26 @@
 
 		typing_interval = setInterval(() => {
 			if (i < text.length) {
-				typewriter += text[i]; // Append the next character (including newlines)
+				typewriter += text[i];
 				i++;
 
 				// Ensure Svelte updates the variable reactively
 				typewriter = `${typewriter}`;
 			} else {
+				typing = false;
 				clearInterval(typing_interval);
 			}
 		}, typing_speed);
 	}
+
+	let showCursor = false;
+	setInterval(() => {
+        if (!typing) {
+            showCursor = !showCursor;
+        } else {
+            showCursor = true;
+        }
+    }, 500);
 
 
 	// Stuff to show skeletons for images
@@ -198,7 +211,7 @@
 			</div>
 			<div class="flex flex-col w-full h-full" bind:this={text_container}>
 					<div class=" { preserve_white_space? "ascii" : "" } lg:text-lg text-xs px-3 text-ctp-text transition-all">
-						{@html typewriter}
+						{@html typewriter}{#if showCursor}<span class="fading">┃</span>{/if}
 					</div>
 			</div>
 		</div>
@@ -262,6 +275,15 @@
   .bouncing {
     animation: upDown 1s ease-in-out infinite; /* Adjust speed */
   }
+  .blinking {
+    animation: blink 1s steps(2, start) infinite;
+    color: currentColor;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
 
 </style>
 

@@ -6,6 +6,7 @@
 	import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 	import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 	import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
+	import { faBars } from "@fortawesome/free-solid-svg-icons";
     import { slide } from 'svelte/transition';
 
 
@@ -121,7 +122,7 @@
 		{/each}
 	</div>
 </div>
-<div class="lg:hidden block relative">
+<div class="lg:hidden block relative flex gap-2">
 	{#if Object.keys(content).length > 1}
 		<div role="button" 
 			on:click={ toggle_dropdown }
@@ -130,8 +131,8 @@
 			{#if is_dropdown_open}
 				<FontAwesomeIcon icon={faAngleUp} />
 			{:else}
-				<div class="bouncing">
-					<FontAwesomeIcon icon={faAngleDown} class="bouncing"/>
+				<div class="">
+					<FontAwesomeIcon icon={faBars} class=""/>
 				</div>
 			{/if}
 		</div> 
@@ -150,6 +151,10 @@
 						{/if}
 					{/each}
 				</div>
+			{:else}
+			<div class="left-0 text-xs text-ctp-lavender flex items-center justify-center">
+				+{Object.keys(content).length - 1} Tabs
+			</div>
 			{/if}
 	{:else}
 		<div  
@@ -158,6 +163,7 @@
 		</div>
 	{/if}
 </div>
+<div class="fixed h-dvh lg:w-full w-dvw top-0 left-0 lg:p-8 p-3 lg:pt-[11.2rem] lg:pl-[25rem] pt-[6.8rem] pointer-events-none">
 <div class="bg-ctp-surface0 {is_dropdown_open? "" : "z-10"} lg:p-4 p-2 rounded-b-md box-shadow rounded-tr-md h-full w-full flex overflow-hidden">
 	<div class="grid {(selected_tab in tab_images)? "lg:grid-cols-3 lg:grid-rows-1 lg:gap-4 gap-2 grid-rows-3" : "" }  h-full w-full">
 		<div class="bg-ctp-base flex col-span-2 lg:row-span-1 row-span-2 flex-row w-full h-full overflow-y-auto overflow-x-clip">
@@ -205,6 +211,7 @@
 			</div>
 		{/if}	
 	</div>
+</div>
 </div>
 
 <style>

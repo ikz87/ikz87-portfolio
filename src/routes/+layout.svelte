@@ -89,7 +89,7 @@
 
 </script>
 
-<div class="app bg-ctp-crust h-dvh w-full">
+<div class="app bg-ctp-crust h-dvh w-full overflow-hidden">
 	<main>
 		{#if is_menu_open}
 			<div class="lg:hidden block z-30 fixed inset-0 bg-black bg-opacity-70 transition-opacity" on:click={close_menu}></div>
@@ -195,7 +195,7 @@
 						</button>
 					</div>
 				</div>
-				<div class="lg:h-[calc(100vh-170px)] h-[calc(100vh-200px)] bg-ctp-crust w-full grid lg:grid-cols-5 gap-8 grid-rows-1">
+				<div class="lg:h-[calc(100vh-170px)] h-full lg:pb-0 pb-3 bg-ctp-crust w-full grid lg:grid-cols-5 gap-8 grid-rows-1">
 					<div class="lg:block relative hidden h-full bg-ctp-surface2 flex flex-col p-4 rounded-xl box-shadow justify-start items-start">
 						<a 
 							href="https://github.com/ikz87/ikz87-portfolio"

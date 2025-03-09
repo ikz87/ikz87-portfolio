@@ -34,7 +34,6 @@
 	let typing_speed = 5;
 	let typing_interval;
 
-	change_tab(selected_tab);
 
 	function change_tab(tab_title) {
 		selected_tab = tab_title;
@@ -95,13 +94,28 @@
 		total_lg_lines = Math.ceil(container_height / 28);
 	};
 
+	let left_shadow_opacity = 0;
+	let right_shadow_opacity = 1;
+
+	function update_shadows() {
+
+		const maxScroll = gallery_container.scrollWidth - gallery_container.clientWidth;
+		const scrollLeft = gallery_container.scrollLeft;
+
+		left_shadow_opacity = Math.round(10 * Math.min(1, scrollLeft / maxScroll))/10;
+		right_shadow_opacity = Math.round(10 * (1 - left_shadow_opacity))/10;
+	}
+
 	onMount(() => {
     calculate_line_numbers();
+	change_tab(selected_tab);
     
-    const observer = new MutationObserver(calculate_line_numbers);
-    observer.observe(text_container, { childList: true, subtree: true, characterData: true });
+    const text_observer = new MutationObserver(calculate_line_numbers);
+    text_observer.observe(text_container, { childList: true, subtree: true, characterData: true });
     text_container.addEventListener("scroll", calculate_line_numbers);
+
   });
+
 
 </script>
 <div class="lg:block hidden">
@@ -186,28 +200,40 @@
 			</div>
 		</div>
 		{#if selected_tab in tab_images}
-			<div bind:this={gallery_container} class="flex lg:pr-5 gap-4 p-1 lg:col-span-1 col-span-2 lg:flex-col flex-row lg:items-start items-center { tab_images[selected_tab].length == 1 ? "justify-center" : "justify-start"} lg:h-auto lg:w-full h-full lg:overflow-x-clip lg:overflow-y-auto overflow-x-auto">
-				{#each tab_images[selected_tab] as img}
-					<div class="relative aspect-video bg-red-200 lg:h-auto lg:w-full h-full">
-						<div class="absolute top-0 left-0 w-full h-full aspect-video border-ctp-crust border-4 ring ring-ctp-overlay0 bg-ctp-overlay2 flex items-center justify-center">
-							<FontAwesomeIcon icon={faSpinner} class="text-ctp-text animate-spin text-3xl" />
+			<div class="relative w-full grid h-full lg:col-span-1 col-span-2">
+				<div 
+					bind:this={gallery_container} 
+					on:scroll={update_shadows}
+					class="flex lg:pr-5 gap-4 p-1 lg:flex-col flex-row lg:items-start items-center { tab_images[selected_tab].length == 1 ? "justify-center" : "justify-start"} lg:h-auto lg:w-full h-full lg:overflow-x-clip lg:overflow-y-auto overflow-x-auto">
+					{#each tab_images[selected_tab] as img}
+						<div class="relative aspect-video bg-red-200 lg:h-auto lg:w-full h-full">
+							<div class="absolute top-0 left-0 w-full h-full aspect-video border-ctp-crust border-4 ring ring-ctp-overlay0 bg-ctp-overlay2 flex items-center justify-center">
+								<FontAwesomeIcon icon={faSpinner} class="text-ctp-text animate-spin text-3xl" />
+							</div>
+							<img role="button" 
+								on:click={() => { selected_image = img }}
+								on:load={() => markLoaded(img.url)}
+								class:loaded={loadedImages[img.url]}
+								class="absolute top-0 left-0 aspect-video h-full border-ctp-crust border-4 ring ring-ctp-overlay0 hover:border-ctp-yellow hover:ring-ctp-peach" src={img.url} alt={img.alt} />
 						</div>
-						<img role="button" 
-							on:click={() => { selected_image = img }}
-							on:load={() => markLoaded(img.url)}
-							class:loaded={loadedImages[img.url]}
-							class="absolute top-0 left-0 aspect-video h-full border-ctp-crust border-4 ring ring-ctp-overlay0 hover:border-ctp-yellow hover:ring-ctp-peach" src={img.url} alt={img.alt} />
+					{/each}
+					{#if (Object.keys(selected_image).length !== 0) }
+						<div 
+							on:click={() => { selected_image = {} }}
+							class="fixed p-16 bg-black opacity-70 top-0 left-0 h-dvh w-dvw">
+						</div>
+						<img role="button"
+							on:click={ () => window.open(selected_image.url, '_blank') }
+							class="fixed top-1/2 left-1/2 surrounding-shadow -translate-x-1/2 -translate-y-1/2 border-2 border-ctp-crust opacity-100 lg:w-2/3 w-full" src={selected_image.url} alt={selected_image.alt} />
+					{/if}
+				</div>
+				<div class="lg:hidden block absolute pointer-events-none grid grid-cols-12 top-0 left-0 w-full h-full">
+					<div class="bg-gradient-to-r from-ctp-surface0 to-transparent w-full h-full" style="opacity: {left_shadow_opacity}">
 					</div>
-				{/each}
-				{#if (Object.keys(selected_image).length !== 0) }
-					<div 
-						on:click={() => { selected_image = {} }}
-						class="fixed p-16 bg-black opacity-70 top-0 left-0 h-dvh w-dvw">
+					<div class="col-span-10"/>
+					<div class="bg-gradient-to-l from-ctp-surface0 to-transparent w-full h-full" style="opacity: {right_shadow_opacity}">
 					</div>
-					<img role="button"
-						on:click={ () => window.open(selected_image.url, '_blank') }
-						class="fixed top-1/2 left-1/2 surrounding-shadow -translate-x-1/2 -translate-y-1/2 border-2 border-ctp-crust opacity-100 lg:w-2/3 w-full" src={selected_image.url} alt={selected_image.alt} />
-				{/if}
+				</div>
 			</div>
 		{/if}	
 	</div>

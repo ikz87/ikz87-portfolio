@@ -36,6 +36,7 @@
 
 
 	function change_tab(tab_title) {
+		loadedImages = {};
 		selected_tab = tab_title;
 		typewriter = ""; 
 		let text = content[tab_title];

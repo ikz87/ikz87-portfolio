@@ -158,7 +158,7 @@
 		<div class="{show_content? "opacity-100" : "opacity-0"} transition duration-200 h-dvh overflow-hidden w-full bg-ctp-crust lg:p-8 p-3">
 			<div class="flex flex-col h-full lg:gap-8 gap-3 w-full">
 				<div class="grid grid-cols-2 lg:p-4 lg:px-6 lg:rounded-xl rounded-md box-shadow bg-ctp-surface1">
-					<div class="lg:py-0  py-1 lg:text-2xl text-sm h-full flex flex-row lg:gap-4 gap-3 items-center justify-start">
+					<div class="lg:py-0  py-1 lg:text-2xl text-sm h-12 flex flex-row lg:gap-4 gap-3 items-center justify-start">
 						<h1 class="lg:pl-0 pl-2 text-ctp-blue font-bold">
 							ikz87's <br class="lg:hidden block"> Portfolio
 							
@@ -171,7 +171,7 @@
 							<a class="underline" href="mailto:i.arcia135@gmail.com">i.arcia135@gmail.com</a>
 						</div>
 					</div>
-					<div class="lg:text-4xl text-2xl h-full flex flex-row gap-4 items-center justify-end">
+					<div class="lg:text-4xl text-2xl h-12 flex flex-row gap-4 items-center justify-end">
 						<div class="lg:block hidden text-2xl text-ctp-red font-bold">
 							Follow/Add me on my socials: 
 						</div>
@@ -195,8 +195,8 @@
 						</button>
 					</div>
 				</div>
-				<div class="lg:h-[calc(100vh-170px)] h-full lg:pb-0 pb-3 bg-ctp-crust w-full grid lg:grid-cols-5 gap-8 grid-rows-1">
-					<div class="lg:block relative hidden h-full bg-ctp-surface2 flex flex-col p-4 rounded-xl box-shadow justify-start items-start">
+				<div class="lg:h-full h-full lg:pb-0 pb-3 bg-ctp-crust w-full flex flex-row gap-8">
+					<div class="lg:block w-96 relative hidden h-full bg-ctp-surface2 flex flex-col p-4 rounded-xl box-shadow justify-start items-start">
 						<a 
 							href="https://github.com/ikz87/ikz87-portfolio"
 							class="absolute flex text-lg underline w-full items-center justify-center text-ctp-text flex-row bottom-4 left-1/2 -translate-x-1/2 "
@@ -209,14 +209,14 @@
 							{#if item.title == "~"}
 								<a href="/" class="w-full">
 									{#if selected_item === "~"}
-										<div role="button" class="text-lg w-full p-3 py-0 flex gap-2 flex-row rounded-lg items-center role-button group bg-ctp-green transition-all">
+										<div role="button" class="text-lg w-60 p-3 py-0 flex gap-2 flex-row rounded-lg items-center role-button group bg-ctp-green transition-all">
 											<FontAwesomeIcon icon={faFolderOpen} class="text-ctp-surface2"/>
 												<h2 class="text-ctp-surface2 ">
 													~
 												</h2>
 										</div>
 									{:else}
-										<div role="button" class="text-lg w-full p-3 py-0 flex gap-2 flex-row rounded-lg items-center role-button group transition-all">
+										<div role="button" class="text-lg w-60 p-3 py-0 flex gap-2 flex-row rounded-lg items-center role-button group transition-all">
 											<FontAwesomeIcon icon={faFolderOpen} class="text-ctp-green group-hover:translate-x-1"/>
 												<h2 class="text-ctp-text group-hover:text-ctp-green group-hover:translate-x-1 group-hover:underline">
 													~
@@ -247,7 +247,7 @@
 							{/if}
 						{/each}
 					</div>
-					<div class="h-full w-full col-span-4 flex flex-col">
+					<div class="h-full w-full flex flex-col col-span-4">
 						<slot/>
 					</div>
 				</div>

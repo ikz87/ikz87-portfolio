@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
 	import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+	import { faXmark } from "@fortawesome/free-solid-svg-icons";
 	import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 	import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 	import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -135,17 +136,17 @@
 
 </script>
 <div class="lg:block hidden">
-	<div class="flex w-full lg:text-lg text-xs bg-ctp-crust">
+	<div class="flex w-dvw lg:text-lg text-xs bg-ctp-crust">
 		{#each Object.entries(content) as [title, paragraph]}
 			{#if title == selected_tab}
 				<div role="button" 
-					class="box-shadow text-center flex items-center justify-center lg:w-48 w-32 lg:rounded-t-xl rounded-t-md bg-ctp-surface0 p-2 text-ctp-lavender font-bold">
+					class="box-shadow text-center items-center justify-center lg:w-48 w-32 lg:rounded-t-xl rounded-t-md bg-ctp-surface0 p-2 text-ctp-lavender font-bold">
 					{title}
 				</div>
 			{:else}
 				<div role="button" 
 					on:click={() => change_tab(title)}
-					class="box-shadow text-center flex items-center justify-center lg:w-48 w-32 lg:rounded-t-xl rounded-t-md bg-ctp-base p-2 text-ctp-surface1 font-bold">
+					class="box-shadow text-center items-center justify-center lg:w-48 w-32 lg:rounded-t-xl rounded-t-md bg-ctp-base p-2 text-ctp-surface1 font-bold">
 					{title}
 				</div>
 			{/if}
@@ -193,7 +194,7 @@
 		</div>
 	{/if}
 </div>
-<div class="fixed h-dvh lg:w-full w-dvw top-0 left-0 lg:p-8 p-3 lg:pt-[11.2rem] lg:pl-[25rem] pt-[6.8rem] pointer-events-none">
+<div class="fixed lg:h-full h-dvh lg:w-full w-dvw top-0 left-0 lg:p-8 p-3 lg:pt-[11.7rem] lg:pl-[21rem] pt-[6.8rem] pointer-events-none">
 <div class="pointer-events-auto bg-ctp-surface0 {is_dropdown_open? "" : "z-10"} lg:p-4 p-2 lg:rounded-b-xl box-shadow lg:rounded-tr-xl rounded-b-md rounded-tr-md h-full w-full flex overflow-hidden">
 	<div class="grid {(selected_tab in tab_images)? "lg:grid-cols-3 lg:grid-rows-1 lg:gap-4 gap-2 grid-rows-3" : "" }  h-full w-full">
 		<div class="bg-ctp-base flex col-span-2 lg:row-span-1 row-span-2 flex-row w-full h-full overflow-y-auto overflow-x-clip">
@@ -238,9 +239,17 @@
 							on:click={() => { selected_image = {} }}
 							class="z-20 fixed p-16 bg-black opacity-70 top-0 left-0 h-dvh w-dvw">
 						</div>
-						<img role="button"
-							on:click={ () => window.open(selected_image.url, '_blank') }
-							class="z-30 fixed top-1/2 left-1/2 surrounding-shadow -translate-x-1/2 -translate-y-1/2 border-2 border-ctp-crust opacity-100 lg:w-2/3 w-full" src={selected_image.url} alt={selected_image.alt} />
+						<div class="pointer-events-none fixed z-30 top-0 left-0 w-dvh h-dvh flex flex-col items-center justify-center">
+							<button
+								class="z-10 lg:w-2/3 w-full flex items-end justify-end"
+								on:click={() => { selected_image = {}}}
+							>
+								<FontAwesomeIcon icon={faXmark} class="text-lg aspect-square px-2 bg-ctp-base py-2 text-ctp-text"/>
+							</button>
+							<img role="button"
+								on:click={ () => window.open(selected_image.url, '_blank') }
+								class="surrounding-shadow pointer-events-auto border-8 border-ctp-base opacity-100 lg:w-2/3 w-full" src={selected_image.url} alt={selected_image.alt} />
+						</div>
 					{/if}
 				</div>
 				{#if tab_images[selected_tab].length > 1 }

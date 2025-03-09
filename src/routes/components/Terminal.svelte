@@ -40,6 +40,8 @@
 		typewriter = ""; 
 		let text = content[tab_title];
 		let i = 0;
+		left_shadow_opacity = 0;
+		right_shadow_opacity = 1;
 
 		clearInterval(typing_interval); 
 		if (gallery_container) { 
@@ -220,20 +222,22 @@
 					{#if (Object.keys(selected_image).length !== 0) }
 						<div 
 							on:click={() => { selected_image = {} }}
-							class="fixed p-16 bg-black opacity-70 top-0 left-0 h-dvh w-dvw">
+							class="z-20 fixed p-16 bg-black opacity-70 top-0 left-0 h-dvh w-dvw">
 						</div>
 						<img role="button"
 							on:click={ () => window.open(selected_image.url, '_blank') }
-							class="fixed top-1/2 left-1/2 surrounding-shadow -translate-x-1/2 -translate-y-1/2 border-2 border-ctp-crust opacity-100 lg:w-2/3 w-full" src={selected_image.url} alt={selected_image.alt} />
+							class="z-30 fixed top-1/2 left-1/2 surrounding-shadow -translate-x-1/2 -translate-y-1/2 border-2 border-ctp-crust opacity-100 lg:w-2/3 w-full" src={selected_image.url} alt={selected_image.alt} />
 					{/if}
 				</div>
-				<div class="lg:hidden block absolute pointer-events-none grid grid-cols-12 top-0 left-0 w-full h-full">
-					<div class="bg-gradient-to-r from-ctp-surface0 to-transparent w-full h-full" style="opacity: {left_shadow_opacity}">
+				{#if tab_images[selected_tab].length > 1 }
+					<div class="lg:hidden block absolute pointer-events-none grid grid-cols-12 top-0 left-0 w-full h-full">
+						<div class="bg-gradient-to-r from-ctp-surface0 to-transparent w-full h-full" style="opacity: {left_shadow_opacity}">
+						</div>
+						<div class="col-span-10"/>
+						<div class="bg-gradient-to-l from-ctp-surface0 to-transparent w-full h-full" style="opacity: {right_shadow_opacity}">
+						</div>
 					</div>
-					<div class="col-span-10"/>
-					<div class="bg-gradient-to-l from-ctp-surface0 to-transparent w-full h-full" style="opacity: {right_shadow_opacity}">
-					</div>
-				</div>
+				{/if}
 			</div>
 		{/if}	
 	</div>

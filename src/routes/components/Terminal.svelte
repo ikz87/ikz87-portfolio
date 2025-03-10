@@ -212,7 +212,7 @@
 			</div>
 			<div class="flex flex-col w-full h-full" bind:this={text_container}>
 					<div class=" { preserve_white_space? "ascii" : "" } lg:text-lg text-xs px-3 text-ctp-text transition-all">
-						{@html typewriter}{#if showCursor}<span class="fading">┃</span>{/if}
+						{@html typewriter}<span class="{showCursor? "opacity-1" : "opacity-0"} transition duration-100">┃</span>
 					</div>
 			</div>
 		</div>

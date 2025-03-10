@@ -194,7 +194,7 @@
 		</div>
 	{/if}
 </div>
-<div class="fixed lg:h-full h-dvh lg:w-full w-dvw top-0 left-0 lg:p-8 p-3 lg:pt-[11.7rem] lg:pl-[21rem] pt-[6.8rem] pointer-events-none">
+<div class="fixed lg:h-full h-dvh lg:w-full w-dvw top-0 left-0 lg:p-8 p-3 lg:pt-[11.7rem] lg:pl-[21rem] pt-[108px] pointer-events-none">
 <div class="pointer-events-auto bg-ctp-surface0 {is_dropdown_open? "" : "z-10"} lg:p-4 p-2 lg:rounded-b-xl box-shadow lg:rounded-tr-xl rounded-b-md rounded-tr-md h-full w-full flex overflow-hidden">
 	<div class="grid {(selected_tab in tab_images)? "lg:grid-cols-3 lg:grid-rows-1 lg:gap-4 gap-2 grid-rows-3" : "" }  h-full w-full">
 		<div class="bg-ctp-base flex col-span-2 lg:row-span-1 row-span-2 flex-row w-full h-full overflow-y-auto overflow-x-clip">

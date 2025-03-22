@@ -13,9 +13,9 @@
 		much I love this very niche part of coding as a hobby.
 		<br>
 		<br>
-		For the uninitiated, dotfiles usually refers to everything
-		inside the \`~/.config/\` folder in linux, meaning, every
-		file that *configures* your apps/programs. For a programer 
+		For the uninitiated, the term "dotfiles" usually refers to 
+		everything inside the \`~/.config/\` folder in linux, meaning, 
+		every file that *configures* your apps/programs. For a programer 
 		and linux power user like me, configuring these files (usually 
 		called ricing) is nothing short of an art form.
 		<br>
@@ -25,7 +25,7 @@
 		this point.
 		<br>
 		<br>
-		My rice consists a <a href="https://github.com/baskerville/bspwm" class="underline">BSPWM</a> and <a href="https://github.com/elkowar/eww" class="underline">EWW</a> rice that automatically 
+		My rice consists of a <a href="https://github.com/baskerville/bspwm" class="underline">BSPWM</a> and <a href="https://github.com/elkowar/eww" class="underline">EWW</a> setup that automatically 
 		generates a colorscheme for every important program I use 
 		based on my current wallpaper. My rice is like a home, it's
 		where I work from and it's honestly one of the things that

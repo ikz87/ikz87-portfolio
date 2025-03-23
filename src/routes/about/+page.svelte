@@ -27,9 +27,9 @@
 		<br>
 		I know how to use the following tools:
 		<br>
-		- Web Dev: Svelte, React, TypeScript, Tailwind, PostgreSQL, AWS, Nginx
+		- Web Dev: Svelte, React, TypeScript, Tailwind, AWS
 		<br>
-		- Backend: Python (Flask, Strawberry GraphQL, Psycopg), PostgreSQL
+		- Backend: Python (Flask, Strawberry GraphQL, Psycopg), PostgreSQL, Nginx
 		<br>
 		- Systems & Tools: Linux, Bash, SSH, Git, Neovim
 		<br>

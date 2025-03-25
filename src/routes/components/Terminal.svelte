@@ -60,6 +60,12 @@
 
 		typing_interval = setInterval(() => {
 			if (i < text.length) {
+				if (text[i] == "<") {
+					while (text[i] !== ">") {
+						typewriter += text[i];
+						i++;
+					}
+				} 
 				typewriter += text[i];
 				i++;
 
